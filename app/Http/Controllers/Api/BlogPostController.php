@@ -15,7 +15,11 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        return BlogPost::all();
+        $blogPosts = BlogPost::select('id','title','featured_image_url','category_id')->get();
+        foreach($blogPosts as $blogPost){
+            $blogPost->category;
+        }
+        return $blogPosts;
     }
 
     /**
